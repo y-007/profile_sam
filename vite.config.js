@@ -1,8 +1,15 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/profile_sam/',  // Replace with your repository name
+  base: '/profile_sam/',  // Ensure this is correct
+  build: {
+    rollupOptions: {
+      input: 'index.html',  // Ensure this matches your entry file
+      output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+      },
+    },
+  },
 });
